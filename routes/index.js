@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
     var client = inbox.createConnection(false, "imap.gmail.com", {
         secureConnection: true,
         auth:{
-            user: "joydassudipta@gmail.com",
-            pass: "49591042"
+            user: "<email_id>",
+            pass: "<password>"
         }
     });
 
