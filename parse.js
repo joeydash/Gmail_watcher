@@ -2,7 +2,8 @@ var evntdatetime=["DateTime","N/A"];
 var evntvenue=["Venue","N/A"];
 var evntcontact=["Contact","N/A"];
 var datestr=[12,12,12,12,00];
-var str="Hey all,Do the names 'Naruto', 'Luffy' and 'Goku' ring a bell?Does the intense action in One Punch Man and Attack on Titan excite you?Does the quote I'll take a potato chip... and EAT IT bring back memories of Death Note? If so, then now's your chance to show off your anime knowledge and put all those hours of binge-watching to good use. IIT Madras Quiz Club presents Anime Quiz 2.0 ~<Venue: Hsb 354>~ ~<Date: 28/8/17>~ ~<Time: 7:00 PM>~ Teams of 3 or less and prizes for the top 3 winners along with a number of audience prizes during the finalsIf you can't find a team mate before coming to the quiz, you can join in with the participants who are alone and form a team at the quiz. And come with a pen!For FAQs about the event, check out the event page on Facebook . ~<Contact: Sukruth (9790469683)>~Cheers,IIT Madras Quiz Club.";
+var Jsonobj={};
+var str="Hey all,Do the names 'Naruto', 'Luffy' and 'Goku' ring a bell?Does the intense action in One Punch Man and Attack on Titan excite you?Does the quote I'll take a potato chip... and EAT IT bring back memories of Death Note? If so, then now's your chance to show off your anime knowledge and put all those hours of binge-watching to good use. IIT Madras Quiz Club presents Anime Quiz 2.0 ~<Venue: Hsb 354>~ ~<Date: 28/8/17>~ ~<Time: 7:00 PM>~ Teams of 3 or less and prizes for the top 3 winners along with a number of audience prizes during the finalsIf you can't find a team mate before coming to the quiz, you can join in with the participants who are alone and form a team at the quiz. And come with a pen!For FAQs about the event, check out the event page on Facebook . ~<Contact: Sukruth (9790469683)>~ Cheers,IIT Madras Quiz Club.";
 
 var reexp=/(\~\<).+?(\>\~)/g;
 var strs=str.match(reexp);
@@ -25,8 +26,8 @@ console.log(evntdatetime[1]);
 console.log(evntvenue[1]);
 console.log(evntcontact[1]);
 
-
-
+var jsonstr=JSON.stringify(Jsonobj);
+console.log(jsonstr);
 function extractCtct(str){
 	var def_val=[/(\s+|)contact(\s+|)(:|-)(\s+|)/ig];
 	str=str.replace(def_val[0],'');
@@ -98,4 +99,10 @@ function extractVenue(str){
 	var def_val=[/(\s+|)venue(\s+|)(:|-)(\s+|)/ig];
 	str=str.replace(def_val[0],'');
 	return(str);
+}
+function Jsonconv(obj)
+{
+	if(obj[1]!="N/A"){
+		Jsonobj[obj[0]]=obj[1];
+	}
 }
