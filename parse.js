@@ -22,9 +22,9 @@ for(var i=0;i<strs.length;i++)
 var ev_date=new Date(datestr[2],datestr[1],datestr[0],datestr[3],datestr[4]);
 evntdatetime[1]=ev_date;
 
-console.log(evntdatetime[1]);
-console.log(evntvenue[1]);
-console.log(evntcontact[1]);
+Jsonconv(evntdatetime);
+Jsonconv(evntvenue);
+Jsonconv(evntcontact);
 
 var jsonstr=JSON.stringify(Jsonobj);
 console.log(jsonstr);
