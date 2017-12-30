@@ -1,37 +1,61 @@
-var evntdatetime=["DateTime","N/A"];
-var evntvenue=["Venue","N/A"];
-var evntcontact=["Contact","N/A"];
+var evnttitle=["Title",null];
+var evntdatetime=["DateTime",null];
+var evntvenue=["Venue",null];
+var evntcontact=["Contact",null];
+var evntorg=["Organizer",null];
+var evntdetl=["Details",null];
+var evnttags=["Tags",null];
+var evntint=["Interested",null];
+
 var datestr=[12,12,12,12,00];
 var Jsonobj={};
+
 var str="Hey all,Do the names 'Naruto', 'Luffy' and 'Goku' ring a bell?Does the intense action in One Punch Man and Attack on Titan excite you?Does the quote I'll take a potato chip... and EAT IT bring back memories of Death Note? If so, then now's your chance to show off your anime knowledge and put all those hours of binge-watching to good use. IIT Madras Quiz Club presents Anime Quiz 2.0 ~<Venue: Hsb 354>~ ~<Date: 28/8/17>~ ~<Time: 7:00 PM>~ Teams of 3 or less and prizes for the top 3 winners along with a number of audience prizes during the finalsIf you can't find a team mate before coming to the quiz, you can join in with the participants who are alone and form a team at the quiz. And come with a pen!For FAQs about the event, check out the event page on Facebook . ~<Contact: Sukruth (9790469683)>~ Cheers,IIT Madras Quiz Club.";
+console.log(parser(str));
 
-var reexp=/(\~\<).+?(\>\~)/g;
-var strs=str.match(reexp);
-var ctctexpr=/\+?\d[\d -]{8,12}\d/g;
-var dateexpr1=/\d{1,2}(\/|\-|\.)\d{1,2}(\/|\-|\.)\d{2,4}/g;
-var dateexpr2=/\d{1,2}(\s|)[A-Za-z]{3,4}(\s|)\d{2,4}/g
-var timeexpr=/([0-9]|)[0-9](\s|)(:|)([0-9][0-9]|)(\s|)(AM|Pm)/gi
 
-for(var i=0;i<strs.length;i++)
-{	strs[i]=strs[i].replace(/(~|<|>)/g,"");
-	if(ctctexpr.test(strs[i])==true) evntcontact[1]=extractCtct(strs[i]);
-	 else if(dateexpr1.test(strs[i])==true||dateexpr2.test(strs[i])==true) extractDate(strs[i]);
-	  else if(timeexpr.test(strs[i])==true) extractTime(strs[i]);
-	   else evntvenue[1]=extractVenue(strs[i]);
+function parser(str){
+	var reexp=/(\~\<).+?(\>\~)/g;
+	var strs=str.match(reexp);
+	var ctctexpr=/\+?\d[\d -]{8,12}\d/g;
+	var dateexpr1=/\d{1,2}(\/|\-|\.)\d{1,2}(\/|\-|\.)\d{2,4}/g;
+	var dateexpr2=/\d{1,2}(\s|)[A-Za-z]{3,4}(\s|)\d{2,4}/g;
+	var timeexpr=/([0-9]|)[0-9](\s|)(:|)([0-9][0-9]|)(\s|)(AM|Pm)/gi;
+	var venueexp=/(venue|where)/ig;
+	var titleexpr=/title/gi
+	if(strs!=null){
+		for(var i=0;i<strs.length;i++)
+		{	strs[i]=strs[i].replace(/(~|<|>)/g,"");
+			if(ctctexpr.test(strs[i])==true) evntcontact[1]=extractCtct(strs[i]);
+			else if(dateexpr1.test(strs[i])==true||dateexpr2.test(strs[i])==true) extractDate(strs[i]);
+			else if(timeexpr.test(strs[i])==true) extractTime(strs[i]);
+			else if(venueexp.test(strs[i])==true) evntvenue[1]=extractVenue(strs[i]);
+			else if(    
+		}
+		var ev_date=new Date(datestr[2],datestr[1],datestr[0],datestr[3],datestr[4]);
+		evntdatetime[1]=ev_date;
+	}
+	
+	Jsonextract();
+	var jsonstr=JSON.stringify(Jsonobj);
+	return(jsonstr);
 }
-var ev_date=new Date(datestr[2],datestr[1],datestr[0],datestr[3],datestr[4]);
-evntdatetime[1]=ev_date;
 
-Jsonconv(evntdatetime);
-Jsonconv(evntvenue);
-Jsonconv(evntcontact);
-
-var jsonstr=JSON.stringify(Jsonobj);
-console.log(jsonstr);
 function extractCtct(str){
 	var def_val=[/(\s+|)contact(\s+|)(:|-)(\s+|)/ig];
 	str=str.replace(def_val[0],'');
 	return(str);
+}
+function Jsonextract(){
+		Jsonconv(evnttitle);
+		Jsonconv(evntdatetime);
+		Jsonconv(evntvenue);
+		Jsonconv(evntorg);
+		Jsonconv(evntdetl);
+		Jsonconv(evnttags);
+		Jsonconv(evntcontact);
+		Jsonconv(evntint);
+		Jsonconv(evnttags);
 }
 function extractDate(str){
 	var def_val=[/(\s+|)date(\s+|)(:|-)(\s+|)/ig];
@@ -72,6 +96,7 @@ function extractDate(str){
 		datestr[0]=parseInt(ldate[0]);
 	}
 }
+
 function extractTime(str){
 	var def_val=[/(\s+|)time(\s+|)(:|-)(\s+|)/ig];
 	str=str.replace(def_val[0],'');	
@@ -95,14 +120,14 @@ function extractTime(str){
 	datestr[3]=ltime[0];
 	datestr[4]=parseInt(ltime[1]);
 }
+
 function extractVenue(str){
 	var def_val=[/(\s+|)venue(\s+|)(:|-)(\s+|)/ig];
 	str=str.replace(def_val[0],'');
 	return(str);
 }
+
 function Jsonconv(obj)
 {
-	if(obj[1]!="N/A"){
-		Jsonobj[obj[0]]=obj[1];
-	}
+	Jsonobj[obj[0]]=obj[1];
 }
