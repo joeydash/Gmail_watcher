@@ -1,3 +1,11 @@
+/***********************************************************************************************************/
+/*Email data parser 1.1											   */
+/*Code created by : Om Shri										   */
+/*Important detail : For the parser to function properly, the important functions must lie inside ~<>~ tags*/
+/*Date modified : 30/12/2017										   */
+/***********************************************************************************************************/
+
+
 var evnttitle=["Title",null];
 var evntdatetime=["DateTime",null];
 var evntvenue=["Venue",null];
