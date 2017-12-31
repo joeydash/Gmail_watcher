@@ -13,11 +13,9 @@ run joeydash's program
 
 filename test.js is a shorthand test file
 
-#MailParser for IIT Madras
-
 Used to get data from the given e-mail and parse the important data as a JSON string
 
-How to use:
+## How to use:
 
 1)Include the script parse.js (No packages required!)
 
@@ -34,5 +32,5 @@ so they are initially left null)
 
 5) The function outputs a JSON string with the respective tags for the data.
 
-Example : {"Title":"Anime Quiz","DateTime":"2017-08-28T13:30:00.000Z","Venue":"Hsb 354","Organizer":null,"Details":"Anime quiz for freshies","Tags":null,"Contact":"Sukruth (9790469683)","Interested":null,"StudentsAddr":null}
+Example : `{"Title":"Anime Quiz","DateTime":"2017-08-28T13:30:00.000Z","Venue":"Hsb 354","Organizer":null,"Details":"Anime quiz for freshies","Tags":null,"Contact":"Sukruth (9790469683)","Interested":null,"StudentsAddr":null}`
 
