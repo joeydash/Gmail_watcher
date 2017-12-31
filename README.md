@@ -37,7 +37,8 @@ Used to get data from the given e-mail and parse the important data as a JSON st
 
 * The function outputs a JSON string with the respective tags for the data.
 
-Example : ![SampleMail](https://i.imgur.com/lrJWygh.png)
+####  Example : 
+![SampleMail](https://i.imgur.com/lrJWygh.png)
 Parse Data :
 `{
   "Title" : "Anime Quiz",
