@@ -17,7 +17,7 @@ Used to get data from the given e-mail and parse the important data as a JSON st
 ## How to use: 
 * parsing function is the parse.js
 
-#### IMPORTANT NOTE!!!: THe data which has to be parsed should be given inside '~< >~'(tilded-angular brackets),to seperate it from the rest of the message junk in the original mail.for eg: ~<Date: 1-01-2018>~
+#### IMPORTANT NOTE!!!: THe data which has to be parsed should be given inside '~< >~'(tilded-angular brackets),to separate it from the rest of the message junk in the original mail.for eg: ~< Date: 1-01-2018 >~
 
 * The data which all are parsed are : 
   * Title 

@@ -7,8 +7,8 @@ var mailparser = new MailParser();
 var client = inbox.createConnection(false, "imap.gmail.com", {
     secureConnection: true,
     auth:{
-        user: "<email_id>",
-        pass: "<password>"
+        user: "cubetechnologyindia@gmail.com",
+        pass: "joeydash"
     }
 });
 
