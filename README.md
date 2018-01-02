@@ -41,11 +41,11 @@ Used to get data from the given e-mail and parse the important data as a JSON st
 ![SampleMail](https://i.imgur.com/lrJWygh.png)
 Parse Data :
 `{
-  "Title" : "Anime Quiz",
+  "Title" : null,
   "DateTime" : "2017-08-28T13:30:00.000Z",
   "Venue" : "Hsb 354"
   ,"Organizer" : null,
-  "Details" : "Anime quiz for freshies",
+  "Details" : null,
   "Tags" : null,
   "Contact" : "Sukruth (9790469683)" ,
   "Interested" : null,
